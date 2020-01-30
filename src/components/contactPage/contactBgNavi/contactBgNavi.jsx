@@ -288,7 +288,7 @@ function ContactBgNavi() {
             LINKEDIN
             <div className="directory-line"></div>
             </div>
-            <div className="linkedin">www.linkedin.com/in/jae-park-webdev</div>
+            <a href={'https://linkedin.com/in/jae-park-webdev'} target='_blank' className="linkedin">www.linkedin.com/in/jae-park-webdev</a>
           </div>
         </div>
         <div className="directories-container-5"></div>

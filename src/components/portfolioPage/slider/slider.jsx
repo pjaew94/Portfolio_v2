@@ -1,4 +1,5 @@
 import React, { useEffect }from 'react'
+
 import gsap from 'gsap'
 import './slider.scss'
 
@@ -36,8 +37,8 @@ function Slider() {
       <div className="project-container">
         <a 
         className='link-video-wrapper' 
-        href='/' 
-        target="_blank"
+        href={'https://ridnyi-house-project.netlify.com'} 
+        target='_blank'
         onMouseEnter={hoverProject1}
         onMouseLeave={unhoverProject1}
         >
