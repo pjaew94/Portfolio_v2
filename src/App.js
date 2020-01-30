@@ -5,10 +5,12 @@ import './App.css';
 
 import PortfolioPage from './components/portfolioPage/portfolioPage'
 import AboutMePage from './components/aboutMePage/aboutMePage'
+import ContactPage from './components/contactPage/contactPage'
 
 const routes = [
-  { path: '/portfolio', name: 'portfolio', Component: PortfolioPage },
+  { path: '/', name: 'portfolio', Component: PortfolioPage },
   { path: '/about', name: 'about', Component: AboutMePage },
+  { path: '/contact', name: 'contact', Component: ContactPage },
  
 ]
 

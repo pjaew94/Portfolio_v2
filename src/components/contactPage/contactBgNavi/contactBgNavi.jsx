@@ -3,20 +3,14 @@ import gsap from 'gsap'
 import { Link } from 'react-router-dom'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
-
-import './aboutBgNavi.scss'
-
+import './contactBgNavi.scss'
 import BurgerClick from '../../burger/burgerClick'
-import AboutUpper from './aboutUpper/aboutUpper'
-import AboutLower from './aboutLower/aboutLower'
-import AboutTech from './aboutTech/aboutTech'
 
-
-function AboutBgNavi() {
+function ContactBgNavi() {
 
   // Logo Animation
   useEffect(() => {
-    gsap.from(".logo-container", { y: -30, autoAlpha: 0, duration: 2, delay: 1, ease: "power2" })
+    gsap.from(".logo-container", { y: -30, autoAlpha: 0, duration: 2, delay: 1.6, ease: "power2" })
   })
 
   // Burger Functional: Receives state from child component "burgerClick" and animates
@@ -43,7 +37,7 @@ function AboutBgNavi() {
 
   //Burger Initial Animation
   useEffect(() => {
-    gsap.from([".line-1", ".line-2", ".line-3"], { y: -20, autoAlpha: 0, duration: 2, delay: 1, stagger: 0.2, ease: "power2" })
+    gsap.from([".line-1", ".line-2", ".line-3"], { y: -20, autoAlpha: 0, duration: 2, delay: 1.6, stagger: 0.2, ease: "power2" })
 
     gsap.to(".line-cross", { autoAlpha: 0, duration: 0 })
     gsap.to(".line-cross", { autoAlpha: 1, duration: 0, delay: 7 })
@@ -107,36 +101,37 @@ function AboutBgNavi() {
     gsap.to(".github", { x: 0, duration: 1, ease: "power2" })
   }
 
-  //bottom-text-animations
-
-  useEffect(() => {
-    gsap.from(".portfolio-text-bottom", { y: -50, autoAlpha: 0, delay: 1.5, duration: 2, stagger: 0.5, ease: "power2" })
-  })
-
+  //bottom "portofolio" text hover animations
   function portfolioHover() {
     gsap.to(".portfolio-text-bottom", { transformOrigin: "right", color: "rgb(152,152,152)", duration: 0.5, ease: "power2" })
   }
   function portfolioUnhover() {
-    gsap.to(".portfolio-text-bottom", { transformOrigin: "left", color: "black", duration: 0.5, ease: "power2" })
+    gsap.to(".portfolio-text-bottom", { transformOrigin: "left", color: "white", duration: 0.5, ease: "power2" })
   }
 
-  //Scroll color change
-  useScrollPosition(({prevPos, currPos})=> {
-    console.log(currPos.y)
+  useEffect(()=> {
 
-    if(currPos.y < -350 ){
-      gsap.to([".line-1", ".line-2", ".line-3"], {backgroundColor: "black", duration: 0})
-      gsap.to(".logo-container", {color: "black", duration: 0})
-      gsap.to(".logo-line", {backgroundColor: "white", duration: 0})
-    } else {
-      gsap.to([".line-1", ".line-2", ".line-3"], {backgroundColor: "white", duration: 0})
-      gsap.to(".logo-container", {color: "white", duration: 0})
-      gsap.to(".logo-line", {backgroundColor: "rgb(22, 22, 22)", duration: 0})
-    }
+    //background animation
+    gsap.from([".contact-bg-row-1",".contact-bg-row-2", ".contact-bg-row-3",".contact-bg-row-4", ".contact-bg-row-5"], {transformOrigin:"top", scaleY:0, stagger:0.1, duration: 1.5, ease:"power2"})
+
+
+    //contact-line/text animation
+    gsap.from(".contact-line", {transformOrigin:"right",width:0,duration:1.5,delay:1.6, ease:"power2"})
+    gsap.from(".contact-text", {x:30, autoAlpha:0,duration:1.5,delay:1.6, ease:"power2"})
+
+    //hook animation
+    gsap.from(".contact-hook", {y:-50, autoAlpha:0, duration:1.5,delay:1.6,ease:"power2"})
+
+    // contact animation
+    gsap.from([".phone-text", ".phone-number", ".email-text", ".email", ".linkedin-text", ".linkedin", "directory-line"], {x: "-100%", duration:1.5, delay:1.6, stagger:0.2, ease:"power2"})
+
+    //bottom "portfolio" animation
+    gsap.from(".portfolio-text-bottom", {y: 30, autoAlpha:0, duration: 1.5, delay:1.6, ease:"power2"})
   })
 
+
   return (
-    <div className='about-bg-navi-container'>
+    <div className='contact-bg-navi-container'>
       <div className='navi-container'>
         <div className="navi-container-2">
           <div className="logo-container">
@@ -218,7 +213,7 @@ function AboutBgNavi() {
                     onMouseEnter={hoverContact}
                     onMouseLeave={unhoverContact}
                     onClick={clickBurger}
-                    to='/contact'
+                    to='/'
                     className='the-link'
                     exact style={{ textDecoration: 'none' }}
                   />
@@ -230,7 +225,7 @@ function AboutBgNavi() {
                   <div className="navi-menu-line github-line"></div>
                 </div>
                 <div className="link-wrapper">
-                <a
+                  <a
                     onMouseEnter={hoverGithub}
                     onMouseLeave={unhoverGithub}
                     onClick={clickBurger}
@@ -247,9 +242,66 @@ function AboutBgNavi() {
           </div>
         </div>
       </div>
-      <AboutUpper />
-      <AboutLower />
-      <AboutTech />
+
+      <div className="contact-content-container">
+        <div className="contact-text-column">
+          <div className="contact-line-container">
+            <div className="contact-line"></div>
+          </div>
+          <div className="contact-text">LET'S GET DOWN TO BUSINESS</div>
+          <div className="contact-text-spacer"></div>
+        </div>
+
+        <div className="contact-hook-container">
+          <div className="contact-hook-container-2">
+            <div className="contact-hook">Let's create</div>
+            <div className="contact-hook">something marvelous together</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="contact-directories-container">
+        <div className="directories-container-1"></div>
+        <div className="directories-container-2">
+          <div className="phone-container">
+            <div className="phone-text">
+            PHONE
+            <div className="directory-line">
+
+            </div>
+            </div>
+            <div className="phone-number">(267) 640 6798</div>
+          </div>
+        </div>
+        <div className="directories-container-3">
+        <div className="email-container">
+            <div className="email-text">
+            EMAIL
+            <div className="directory-line"></div>
+            </div>
+            <div className="email">pjawe94@gmail.com</div>
+          </div>
+        </div>
+        <div className="directories-container-4">
+        <div className="linkedin-container">
+            <div className="linkedin-text">
+            LINKEDIN
+            <div className="directory-line"></div>
+            </div>
+            <div className="linkedin">www.linkedin.com/in/jae-park-webdev</div>
+          </div>
+        </div>
+        <div className="directories-container-5"></div>
+
+      </div>
+
+      <div className="contact-background-container">
+        <div className="contact-bg-row-1 bg-row"></div>
+        <div className="contact-bg-row-2 bg-row"></div>
+        <div className="contact-bg-row-3 bg-row"></div>
+        <div className="contact-bg-row-4 bg-row"></div>
+        <div className="contact-bg-row-5 bg-row"></div>
+      </div>
 
       <div className='bottom-text-container'>
         <div className="bottom-text-container-2">
@@ -273,5 +325,4 @@ function AboutBgNavi() {
   )
 }
 
-
-export default AboutBgNavi
+export default ContactBgNavi

@@ -167,7 +167,7 @@ function Navi() {
                   onMouseEnter={hoverPortfolio}
                   onMouseLeave={unhoverPortfolio}
                   onClick={clickBurger}
-                  to='/portfolio'
+                  to='/'
                   className='the-link'
                   exact style={{ textDecoration: 'none' }}
                 />
@@ -183,7 +183,7 @@ function Navi() {
                   onMouseEnter={hoverContact}
                   onMouseLeave={unhoverContact}
                   onClick={clickBurger}
-                  to='/'
+                  to='/contact'
                   className='the-link'
                   exact style={{ textDecoration: 'none' }}
                 />
@@ -195,15 +195,17 @@ function Navi() {
                 <div className="navi-menu-line github-line"></div>
               </div>
               <div className="link-wrapper">
-                <Link
+                <a
                   onMouseEnter={hoverGithub}
                   onMouseLeave={unhoverGithub}
                   onClick={clickBurger}
-                  to='/'
+                  href={'https://github.com/pjaew94'}
                   className='the-link'
                   exact style={{ textDecoration: 'none' }}
-                />
-                <div className="text github">GITHUB</div>
+                  target='_blank'
+                >
+                  <div className="text github">GITHUB</div>
+                </a>
               </div>
             </div>
           </div>

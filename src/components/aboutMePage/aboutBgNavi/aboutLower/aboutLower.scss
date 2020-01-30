@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:500,500i,600,700,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:500,500i,600,700,700i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,900&display=swap');
 
 .about-lower-container {
@@ -108,9 +108,17 @@
 
       .story-line-19,
       .story-line-20,
-      .story-line-21 {
-        font-weight: 900;
-        font-style: italic;
+      .story-line-21, 
+      .story-line-22 {
+        font-weight: 700;
+        // font-style: italic;
+      }
+
+      .view2,
+      .view3,
+      .view4 {
+        transform: translateY(20px);
+        opacity: 0;
       }
     }
   }
@@ -159,4 +167,6 @@
       right: 0;
     }
   }
+
+  
 }
